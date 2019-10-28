@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoList = ({ todo, index, completeTodo}) => {
+const TodoList = ({ todo, index, completeTodo, removeTodo}) => {
   return (
     <div 
     className="todo"
@@ -10,6 +10,7 @@ const TodoList = ({ todo, index, completeTodo}) => {
 
       <div>
         <button onClick={() => completeTodo(index)}>Complete</button>
+        <button onClick={() => removeTodo(index)}>x</button>
       </div>
     </div>
   )

@@ -1,48 +1,59 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import TodoList from './TodoList'
-import TodoForm from './TodoForm'
-import './App.css'
+import TodoList from "./TodoList";
+import TodoForm from "./TodoForm";
+import "./App.css";
 
 const App = () => {
-  const [todos, setTodos ] = useState([
+  const [todos, setTodos] = useState([
     {
-      text: 'Learn about React',
+      text: "Learn about React",
       isCompleted: false
     },
     {
-      text: 'Meet friend for lunch',
+      text: "Meet friend for lunch",
       isCompleted: false
     },
     {
-      text: 'Build really cool todo app',
+      text: "Build really cool todo app",
       isCompleted: false
     }
-  ])
+  ]);
 
   const addTodo = text => {
     const newTodos = [...todos, { text }];
     setTodos(newTodos);
-  }
+  };
 
   const completeTodo = index => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos);
-  }
+  };
+
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
   return (
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <TodoList key={index} index={index} todo={todo} completeTodo={completeTodo}/>
+          <TodoList
+            key={index}
+            index={index}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+          />
         ))}
 
         <TodoForm addTodo={addTodo} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
-
+export default App;
