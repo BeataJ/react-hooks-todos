@@ -4,6 +4,7 @@ const TodoList = ({ todo, index, completeTodo}) => {
   return (
     <div 
     className="todo"
+     style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }}
     >
       {todo.text}
 
