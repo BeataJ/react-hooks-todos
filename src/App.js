@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-import Todo from './Todo'
+import TodoList from './TodoList'
+import './App.css'
 
 const App = () => {
   const [todos, setTodos ] = useState([
@@ -23,7 +24,7 @@ const App = () => {
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo}/>
+          <TodoList key={index} index={index} todo={todo}/>
         ))}
       </div>
     </div>
