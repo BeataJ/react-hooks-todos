@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import TodoList from './TodoList'
+import TodoForm from './TodoForm'
 import './App.css'
 
 const App = () => {
@@ -19,13 +20,19 @@ const App = () => {
     }
   ])
 
+  const addTodo = text => {
+    const NewTodos = [...todos, { text }];
+    setTodos(NewTodos);
+  }
 
   return (
     <div className="app">
-      <div className="todo-list">
+      <div className="todo-list" >
         {todos.map((todo, index) => (
-          <TodoList key={index} index={index} todo={todo}/>
+          <TodoList style={{ textDecoration: todo.isCompleted ? 'line-through' : '' }} key={index} index={index} todo={todo}/>
         ))}
+
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   )

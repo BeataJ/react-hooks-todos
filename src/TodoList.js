@@ -1,11 +1,17 @@
 import React from 'react'
 
-const Todo = ({ todo, index }) => {
+const TodoList = ({ todo, index, completeTodo}) => {
   return (
-    <div className="todo">
+    <div 
+    className="todo"
+    >
       {todo.text}
+
+      <div>
+        <button onClick={() => completeTodo(index)}>Complete</button>
+      </div>
     </div>
   )
 }
 
-export default Todo
+export default TodoList
